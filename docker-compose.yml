@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  proxy:
+    image: repo-clicksports.clicksports.de/docker/nginx-dev:latest
+    tty: true
+    stdin_open: true
+    depends_on:
+      - php-fpm
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - './:/var/www/html'
+  php-fpm:
+    image: repo-clicksports.clicksports.de/docker/php-fpm-dev:8.0
+    volumes:
+      - './:/var/www/html'
+    environment:
+      XDEBUG_MODE: debug
+  mysql:
+    image: mysql/mysql-server:8.0
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: "redaxo"
+      MYSQL_USER: "redaxo"
+      MYSQL_PASSWORD: "password"

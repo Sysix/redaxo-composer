@@ -1,0 +1,52 @@
+{
+    "name": "sysix/composer-redaxo",
+    "authors": [
+        {
+            "name": "Alexander Schlegel",
+            "email": "alexander.schlegel@clicksports.de"
+        }
+    ],
+    "require": {
+        "redaxo/source": "^5.13",
+        "composer/installers": "^2.0",
+        "friendsofredaxo/cke5": "^5.0",
+      "yakamara/redaxo_yrewrite": "^2.8"
+    },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "yakamara/redaxo_yrewrite",
+        "type": "redaxo5-addon",
+        "version": "2.8.3",
+        "dist": {
+          "url": "https://github.com/yakamara/redaxo_yrewrite/archive/refs/tags/2.8.3.zip",
+          "type": "zip"
+        },
+        "require-dev": {
+          "composer/installers": "~2.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "friendsofredaxo/cke5",
+        "type": "redaxo5-addon",
+        "version": "5.0.5",
+        "dist": {
+          "url": "https://github.com/FriendsOfREDAXO/cke5/archive/refs/tags/5.0.5.zip",
+          "type": "zip"
+        },
+        "require-dev": {
+          "composer/installers": "~2.0"
+        }
+      }
+    }
+  ],
+    "extra": {
+        "installer-paths": {
+            "redaxo/addons/{$name}/": ["type:redaxo5-addon"]
+        }
+    }
+}
